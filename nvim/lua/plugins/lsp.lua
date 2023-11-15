@@ -4,6 +4,11 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
+        "stylua",
+        "selene",
+        "luacheck",
+        "shellcheck",
+        "shfmt",
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
@@ -11,11 +16,12 @@ return {
     end,
   },
 
+  -- lsp servers
   {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = true },
-
+      ---@type lspconfig.options
       servers = {
         cssls = {},
         tailwindcss = {
@@ -40,7 +46,6 @@ return {
                 includeInlayEnumMemberValueHints = true,
               },
             },
-
             javascript = {
               inlayHints = {
                 includeInlayParameterNameHints = "all",
@@ -63,6 +68,7 @@ return {
           },
         },
         lua_ls = {
+          -- enabled = false,
           single_file_support = true,
           settings = {
             Lua = {
