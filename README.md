@@ -3,16 +3,20 @@
 <img width="1186" alt="스크린샷 2024-03-14 오후 5 43 40" src="https://github.com/uomaep/dotfiles/assets/114221785/f438337b-3251-4ada-bdd0-f8a96352ca2e">
 
 # Uomaep's dotfiles
+
 **Warning**: Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
 ## Features (기능들)
+
 - vim (Neovim) config
 - tmux config
 - git config
 - fish config
 
 ## Neovim setup (네오빔 설정)
+
 ### Requirements (요구사항)
+
 - Neovim
 - Git
 - LazyVim
@@ -21,26 +25,29 @@
 - for telescope.nvim (optional)
 
 ## Shell setup (macOS & Linux)
+
 - Fish shell
 - Fisher - Plugin manager
 - Tide - Shell theme
 - Nerd fonts - I use BlexMono Nerd font
 - Eza - `ls` replacement (이쁘게 출력)
-<img width="1186" alt="스크린샷 2024-03-14 오후 5 52 30" src="https://github.com/uomaep/dotfiles/assets/114221785/7e573967-532d-4cae-8d87-526213b03210">
+  <img width="1186" alt="스크린샷 2024-03-14 오후 5 52 30" src="https://github.com/uomaep/dotfiles/assets/114221785/7e573967-532d-4cae-8d87-526213b03210">
 
 ## Custom functions created using Neovim and LazyVim<br>Neovim과 LazyVim을 이용한 커스텀 기능
+
 - A function to immediately compile and execute the source file being edited with Neovim and output the results on a floating screen.
 - Neovim으로 편집하고 있는 소스파일을 바로 컴파일 및 실행하여 플로팅 화면으로 결과를 출력하는 기능
 
 ### detail of fuction<br>기능 설명
+
 1. As an example, edit the C++ source file with Neovim, compile and run it.<br>예시로 Neovim으로 c++ 소스파일은 편집하고 컴파일 및 실행
-   <img width="1296" alt="스크린샷 2024-03-14 오후 6 01 03" src="https://github.com/uomaep/dotfiles/assets/114221785/3d584cee-c6ff-465a-bb5d-7c332b7a0e58">
+   <img width="1256" alt="스크린샷 2024-03-14 오후 8 57 35" src="https://github.com/uomaep/dotfiles/assets/114221785/abc1b745-7332-48f7-9206-3d5f0b9a4606">
 
 2. When you press the `<leader>` key, the lazyVim help window appears. (In my setup, the `<leader>` key is the `<space>` key.)<br>`<leader>` 키를 누르면lazyVim 도움말 창이 나타납니다. (제 설정에서 `<leader>` 키는 `<space>` 키 입니다.)
-   <img width="1296" alt="스크린샷 2024-03-14 오후 6 02 51" src="https://github.com/uomaep/dotfiles/assets/114221785/991c5221-4e22-42f2-bd8e-9c6b721d4b67">
+   <img width="1256" alt="스크린샷 2024-03-14 오후 8 58 49" src="https://github.com/uomaep/dotfiles/assets/114221785/53b9825e-000a-477d-a8e0-8fe54b3a9040">
 
 3. You can use my custom function by pressing the `r` key when the lazyVim help window is displayed.<br>lazyVim 도움창이 뜬 상태에서 `r` 키를 누르면 저의 커스텀 기능을 사용할 수 있습니다.
-   <img width="1296" alt="스크린샷 2024-03-14 오후 6 04 28" src="https://github.com/uomaep/dotfiles/assets/114221785/987f024c-2f25-48fc-91b4-9c335a5ee70c">
+   <img width="1256" alt="스크린샷 2024-03-14 오후 8 57 27" src="https://github.com/uomaep/dotfiles/assets/114221785/ef28f242-36a5-47c8-a1e0-78b36401da8a">
 
 4. The compilation and execution results are displayed on a floating screen, and when you press the `q` key, the window disappears.<br>플로팅 화면에 컴파일 및 실행 결과가 출력되며, `q` 키를 누르면 창이 없어집니다.
 
