@@ -51,4 +51,6 @@
 
 4. The result of compilation and execution is displayed on the floating screen, and the log can be checked by moving the cursor because it is in the vim "normal" state. Press the 'q' key to lose the window.<br>플로팅 화면에 컴파일 및 실행 결과가 출력되며, vim "normal"상태이기 때문에 커서를 움직여 로그를 확인할 수 있습니다. `q` 키를 누르면 창이 없어집니다.
 
+- Currently, only the c++, java, python, and javascript languages are set in my configuration file. If you want to add another language, please leave it in issue and let me know, or if you work directly to modify the configuration file and leave a pull request, I will check and apply it. <br>[Korean]: 현재 저의 설정파일에는 c++, java, python, javascript 언어만 설정되어있습니다. 혹시 다른 언어를 추가하고싶다면 issue에 남겨 저한테 알려주시거나 혹은 직접 fork하여 설정파일을 수정하여 pull request를 남기면 확인 후 적용하도록 하겠습니다.
+
 As an additional explanation, it was confirmed that input methods such as `cin` and Scanner's `next()` in C++ and Java languages ​​also work. If you find anything wrong with my configuration file, please leave an issue. Additionally, descriptions of these custom settings files will be organized in the readme.md file within the folder later.<br>추가적인 설명으로 c++, java 언어에서 `cin`과 Scanner의 `next()`와 같은 입력 메서드도 작동하는 것을 확인하였습니다. 혹시 제 설정파일에서 이상이 발견되면 issue에 남겨주세요. 또한 이러한 커스텀 설정 파일 설명도 추후에 해당 폴더 내의 `readme.md` 파일에 정리하겠습니다.
