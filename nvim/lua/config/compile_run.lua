@@ -76,13 +76,10 @@ function M.compile_and_run()
         local buf, win = M.create_float_window()
         local job_id = vim.fn.termopen(run_command, {
             on_exit = function(_, exit_code, _)
-                if exit_code == 0 then
-                    -- 프로그램이 정상 종료됐을 때 실행될 코드
-                    vim.api.nvim_buf_call(buf, function()
-                        -- 터미널 버퍼에서 Normal 모드로 전환
-                        vim.cmd("stopinsert")
-                    end)
-                end
+                vim.api.nvim_buf_call(buf, function()
+                    -- 터미널 버퍼에서 Normal 모드로 전환
+                    vim.cmd("stopinsert")
+                end)
             end,
         })
         -- 터미널 버퍼에서 즉시 Insert 모드로 전환
