@@ -7,6 +7,8 @@
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
+local compile_and_run_cpp = require("config.compile_run").compile_and_run_cpp
+local wk = require("which-key")
 
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
@@ -62,9 +64,13 @@ keymap.set("n", "<C-j>", function()
 end, opts)
 
 keymap.set("n", "<leader>r", function()
-    require("craftzdog.hsl").replaceHexWithHSL()
-end)
+    require("config.compile_run").compile_and_run()
+end, opts)
+
+wk.register({
+    r = "Compile and Run", -- 여기에 원하는 설명을 추가
+}, { prefix = " ", mode = "n" }) -- ' '는 <space> 키를 의미하며, mode는 네가 설정을 적용하고 싶은 모드를 나타냄
 
 keymap.set("n", "<leader>i", function()
-    require("craftzdog.lsp").toggleInlayHints()
+    require("uomaep.lsp").toggleInlayHints()
 end)
