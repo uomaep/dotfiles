@@ -2,6 +2,7 @@ local M = {}
 
 function M.create_float_window()
     local buf = vim.api.nvim_create_buf(false, true) -- Floating window를 위한 버퍼 생성
+
     local width = vim.api.nvim_get_option("columns")
     local height = vim.api.nvim_get_option("lines")
 
@@ -23,24 +24,6 @@ function M.create_float_window()
         border = "rounded",
     })
 
-    -- Floating window의 크기 및 위치 설정
-    --local win_height = math.ceil(height * 0.8 - 4)
-    --local win_width = math.ceil(width * 0.8)
-    --local row = math.ceil((height - win_height) / 2 - 1)
-    --local col = math.ceil((width - win_width) / 2)
-
-    --local opts = {
-    --    relative = "editor",
-    --    width = win_width,
-    --    height = win_height,
-    --    row = row,
-    --    col = col,
-    --    style = "minimal",
-    --}
-
-    ---- Floating window 생성
-    --local win = vim.api.nvim_open_win(buf, true, opts)
-
     -- `q` 키로 floating window 닫기
     vim.api.nvim_buf_set_keymap(buf, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
 
@@ -53,6 +36,7 @@ function M.compile_and_run()
     local filename = vim.fn.expand("%:t:r")
     local compile_command = ""
     local run_command = ""
+    local compile_success = true
 
     if ext == "cpp" then
         compile_command = string.format("g++ -std=c++11 %s -o %s", file, filename)
@@ -67,12 +51,20 @@ function M.compile_and_run()
         return
     end
 
+    -- 컴파일 과정 처리
     if compile_command ~= "" then
-        os.execute(compile_command)
+        local compile_output = vim.fn.system(compile_command)
+        if vim.v.shell_error ~= 0 then
+            compile_success = false
+            -- 컴파일 에러 처리: 플로팅 윈도우에 에러 메시지 출력
+            local buf, win = M.create_float_window()
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(compile_output, "\n"))
+            return
+        end
     end
 
     -- Floating window 생성 및 터미널 실행
-    if run_command ~= "" then
+    if compile_success and run_command ~= "" then
         local buf, win = M.create_float_window()
         local job_id = vim.fn.termopen(run_command, {
             on_exit = function(_, exit_code, _)
