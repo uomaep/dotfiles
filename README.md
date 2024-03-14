@@ -49,6 +49,6 @@
 3. You can use my custom function by pressing the `r` key when the lazyVim help window is displayed.<br>lazyVim 도움창이 뜬 상태에서 `r` 키를 누르면 저의 커스텀 기능을 사용할 수 있습니다.
    <img width="1256" alt="스크린샷 2024-03-14 오후 8 57 27" src="https://github.com/uomaep/dotfiles/assets/114221785/ef28f242-36a5-47c8-a1e0-78b36401da8a">
 
-4. The compilation and execution results are displayed on a floating screen, and when you press the `q` key, the window disappears.<br>플로팅 화면에 컴파일 및 실행 결과가 출력되며, `q` 키를 누르면 창이 없어집니다.
+4. The result of compilation and execution is displayed on the floating screen, and the log can be checked by moving the cursor because it is in the vim "normal" state. Press the 'q' key to lose the window.<br>플로팅 화면에 컴파일 및 실행 결과가 출력되며, vim "normal"상태이기 때문에 커서를 움직여 로그를 확인할 수 있습니다. `q` 키를 누르면 창이 없어집니다.
 
 As an additional explanation, it was confirmed that input methods such as `cin` and Scanner's `next()` in C++ and Java languages ​​also work. If you find anything wrong with my configuration file, please leave an issue. Additionally, descriptions of these custom settings files will be organized in the readme.md file within the folder later.<br>추가적인 설명으로 c++, java 언어에서 `cin`과 Scanner의 `next()`와 같은 입력 메서드도 작동하는 것을 확인하였습니다. 혹시 제 설정파일에서 이상이 발견되면 issue에 남겨주세요. 또한 이러한 커스텀 설정 파일 설명도 추후에 해당 폴더 내의 `readme.md` 파일에 정리하겠습니다.
