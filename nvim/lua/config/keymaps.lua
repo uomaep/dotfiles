@@ -1,14 +1,9 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+local discipline = require("craftzdog.discipline")
 
--- local discipline = require("uomaep.discipline")
--- discipline.cowboy()
+discipline.cowboy()
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
-local compile_and_run_cpp = require("config.compile_run").compile_and_run_cpp
-local wk = require("which-key")
 
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
@@ -28,11 +23,18 @@ keymap.set("v", "<Leader>D", '"_D')
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
--- Delete a word backwords
+-- Delete a word backwards
 keymap.set("n", "dw", 'vb"_d')
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
+
+-- Save with root permission (not working for now)
+--vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
+
+-- Disable continuations
+keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
+keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
@@ -41,11 +43,9 @@ keymap.set("n", "<C-m>", "<C-i>", opts)
 keymap.set("n", "te", ":tabedit")
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
-
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
-
 -- Move window
 keymap.set("n", "sh", "<C-w>h")
 keymap.set("n", "sk", "<C-w>k")
@@ -60,17 +60,22 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
-    vim.diagnostic.goto_next()
+	vim.diagnostic.goto_next()
 end, opts)
 
 keymap.set("n", "<leader>r", function()
-    require("config.compile_run").compile_and_run()
+	require("config.compile_run").compile_and_run()
 end, opts)
 
+local wk = require("which-key")
 wk.register({
-    r = "Compile and Run", -- 여기에 원하는 설명을 추가
+	r = "Compile and Run", -- 여기에 원하는 설명을 추가
 }, { prefix = " ", mode = "n" }) -- ' '는 <space> 키를 의미하며, mode는 네가 설정을 적용하고 싶은 모드를 나타냄
 
+keymap.set("n", "<leader>h", function()
+	require("uomaep.hsl").replaceHexWithHSL()
+end)
+
 keymap.set("n", "<leader>i", function()
-    require("uomaep.lsp").toggleInlayHints()
+	require("uomaep.lsp").toggleInlayHints()
 end)
