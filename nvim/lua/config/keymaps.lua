@@ -1,4 +1,4 @@
-local discipline = require("craftzdog.discipline")
+local discipline = require("uomaep.discipline")
 
 discipline.cowboy()
 
