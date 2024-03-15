@@ -1,6 +1,6 @@
-local discipline = require("uomaep.discipline")
+-- local discipline = require("uomaep.discipline")
 
-discipline.cowboy()
+-- discipline.cowboy()
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
