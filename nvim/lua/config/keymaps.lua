@@ -72,6 +72,12 @@ wk.register({
 	r = "Compile and Run", -- 여기에 원하는 설명을 추가
 }, { prefix = " ", mode = "n" }) -- ' '는 <space> 키를 의미하며, mode는 네가 설정을 적용하고 싶은 모드를 나타냄
 
+-- Markdown Preview
+keymap.set("n", "<leader>m", ":MarkdownPreviewToggle<Return>", opts)
+wk.register({
+	m = "Markdown Preview Toggle",
+}, { prefix = " ", mode = "n" })
+
 keymap.set("n", "<leader>h", function()
 	require("uomaep.hsl").replaceHexWithHSL()
 end)
