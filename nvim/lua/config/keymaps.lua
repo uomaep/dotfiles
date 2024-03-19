@@ -1,7 +1,3 @@
--- local discipline = require("uomaep.discipline")
-
--- discipline.cowboy()
-
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -30,7 +26,7 @@ keymap.set("n", "dw", 'vb"_d')
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Save with root permission (not working for now)
---vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
+-- vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
 -- Disable continuations
 keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
@@ -53,35 +49,20 @@ keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
 
 -- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
+keymap.set("n", "<C-w><left>", "<C-w>>")
+keymap.set("n", "<C-w><right>", "<C-w><")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
-	vim.diagnostic.goto_next()
+  vim.diagnostic.goto_next()
 end, opts)
 
 keymap.set("n", "<leader>r", function()
-	require("config.compile_run").compile_and_run()
-end, opts)
-
-local wk = require("which-key")
-wk.register({
-	r = "Compile and Run", -- 여기에 원하는 설명을 추가
-}, { prefix = " ", mode = "n" }) -- ' '는 <space> 키를 의미하며, mode는 네가 설정을 적용하고 싶은 모드를 나타냄
-
--- Markdown Preview
-keymap.set("n", "<leader>m", ":MarkdownPreviewToggle<Return>", opts)
-wk.register({
-	m = "Markdown Preview Toggle",
-}, { prefix = " ", mode = "n" })
-
-keymap.set("n", "<leader>h", function()
-	require("uomaep.hsl").replaceHexWithHSL()
+  require("uomaep.hsl").replaceHexWithHSL()
 end)
 
 keymap.set("n", "<leader>i", function()
-	require("uomaep.lsp").toggleInlayHints()
+  require("uomaep.lsp").toggleInlayHints()
 end)
